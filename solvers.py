@@ -254,12 +254,12 @@ class Solver(object):
         """Validate a putative solution to the model."""
         check = np.apply_along_axis(self._check_pam, 1, solution, tol)
         if self.model.assortativity == 'positive' and (not check.all()):
-            mesg = ("Approximated solution failed to satisfy required " +
+            mesg = ("Warning: Approximated solution failed to satisfy required " +
                     "assortativity condition.")
             print(mesg)
             # raise ValueError(mesg)
         elif self.model.assortativity == 'negative' and (check.all()):
-            mesg = ("Approximated solution failed to satisfy required " +
+            mesg = ("Warning: Approximated solution failed to satisfy required " +
                     "assortativity condition.")
             print(mesg)
             # raise ValueError(mesg)

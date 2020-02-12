@@ -715,8 +715,9 @@ def plot_land_choice(sols,labels,color=True,logs=True,yscale=None,save_in=None):
 			plt.ylim(0,max(maxs))
 	plt.xlabel("farmer skill ($y$)", fontsize=16)
 	plt.ylabel("farm size", fontsize=16)
-	plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0., frameon=True, fontsize=14)
-
+	legend=plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0., frameon=True, fontsize=14, title='Land quality spread')
+	plt.setp(legend.get_title(),fontsize=16)
+	
 	plt.tight_layout()
 	if save_in != None:
 		plt.savefig(save_in, dpi=None, facecolor='w', edgecolor='w',
@@ -745,7 +746,7 @@ def plot_kl_ratio(solsR,labelsR,solsP,labelsP,color=True,save_in=None, showw=Tru
 	plt.figure(figsize=(12,6))
 	plt.subplot(121)
 	for sol in allsols:
-		ratio = (sol[0]['ks']*sol[0]['thetas'])/((sol[0]['ks']*sol[0]['thetas'])[-1])
+		ratio = (sol[0]['ks']/(1/sol[0]['thetas']))
 		plt.plot(sol[0]['xs'],ratio,label=sol[1], alpha=sol[2])
 	plt.xlabel("Farmer Skill", fontsize=16)
 	plt.ylabel('$k/l$', fontsize=16)
@@ -753,17 +754,18 @@ def plot_kl_ratio(solsR,labelsR,solsP,labelsP,color=True,save_in=None, showw=Tru
 	plt.yticks(fontsize=14)
 	plt.ylabel('$k/l$ normalized', fontsize=16)
 	plt.xscale('log')
+	plt.ylim(0,1)
 
 	allsols = zip(solsP,labelsP,alplist)
 	plt.subplot(122)
 	for sol in allsols:
-		ratio = (sol[0]['ks']*sol[0]['thetas'])/((sol[0]['ks']*sol[0]['thetas'])[-1])
+		ratio = (sol[0]['ks']/(1/sol[0]['thetas']))
 		plt.plot(sol[0]['xs'],ratio,label=sol[1], alpha=sol[2])
 	plt.xlabel("Farmer Skill", fontsize=16)
 	plt.ylabel('$k/l$', fontsize=16)
 	plt.xticks(fontsize=14)
 	plt.yticks(fontsize=14)
-	plt.ylim(0,350)
+	plt.ylim(0,1)
 	plt.ylabel('$k/l$ normalized', fontsize=16)
 	plt.xscale('log')
 	plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0., frameon=True, fontsize=14)

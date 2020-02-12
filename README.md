@@ -8,7 +8,7 @@
  
  ## The files
  
- The `Corrigendum` jupyter notebook explains the changes to the original paper and the results. The python files (`solvers`,`inputs`,`models`, `ivp`, `new_capital`) are used within the notebook. The build on the shooting solver of [Assortative matching with Large firms code](https://github.com/davidrpugh/assortative-matching-large-firms) developed by [David Pugh](https://github.com/davidrpugh) and [Cristina Lafuente](https://github.com/crisla).
+ The `Corrigendum` jupyter notebook explains the changes to the original paper and the results. The python files (`inputs`,`ivp`,`models`,`shooting`,`solvers`,`new_capital`) are used within the notebook. The build on the shooting solver of [Assortative matching with Large firms code](https://github.com/davidrpugh/assortative-matching-large-firms) developed by [David Pugh](https://github.com/davidrpugh) and [Cristina Lafuente](https://github.com/crisla).
  
  The solutions are saved in .csv files for replication. Figure 1 in the Corrigendum is also provided. The solutions of the calibration in Adamopoulos and Restuccia (2014) are also provided for comparison.
 
